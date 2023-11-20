@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { data } from "../../assets/data";
 
-
 const initialState = {
   users: [...data],
+  edit: { open: false, data: {} },
+  delete: { open: false, id: "" },
+  openForm: false,
 };
 
 export const UserSlice = createSlice({
@@ -21,9 +23,20 @@ export const UserSlice = createSlice({
         val.id === action.payload.id ? action.payload.data : val
       );
     },
+    setEdit: (state, action) => {
+      state.edit.open = action.payload.open;
+      state.edit.data = action.payload.data;
+    },
+    setDelete: (state, action) => {
+      state.delete = { open: action.payload.open, id: action.payload.id };
+    },
+    setForm: (state, action) => {
+      state.openForm = action.payload;
+    },
   },
 });
 
-export const { addUser, removeUser, updateUser } = UserSlice.actions;
+export const { addUser, removeUser, updateUser, setEdit, setDelete, setForm } =
+  UserSlice.actions;
 
 export default UserSlice.reducer;

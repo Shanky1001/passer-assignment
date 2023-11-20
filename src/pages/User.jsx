@@ -1,16 +1,22 @@
 import React, { useMemo } from "react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
+import Form from "../components/Form";
+import DialogBox from "../components/DialogBox";
+import { setDelete, setEdit, setForm } from "../redux/features/UserSlice";
+import { IconButton, Stack } from "@mui/material";
 
 const User = () => {
   const params = useParams();
   const { id } = params;
   const UserState = useSelector((state) => state.userState);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const getData = useMemo(() => {
     let data;
     UserState.users.forEach((val) => {
@@ -21,9 +27,34 @@ const User = () => {
     return data;
   }, [id, UserState.users]);
 
+  const handleDelete = () => {
+    dispatch(setDelete({ open: true, id: getData.id }));
+  };
+  const handleEdit = () => {
+    dispatch(setEdit({ open: true, data: getData }));
+  };
+  const handleAddUser = () => {
+    dispatch(setForm(true));
+  };
+  const handleBack = () => {
+    navigate("/");
+  };
+
   return (
     <div className="user_container">
-      <Card sx={{ width: 345 }}>
+      <Stack
+        direction={"row"}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+      >
+        <Button variant="outlined" onClick={handleBack}>
+          Back
+        </Button>
+        <Button variant="contained" onClick={handleAddUser}>
+          Add User
+        </Button>
+      </Stack>
+      <Card sx={{ width: 345, marginTop: "20px",marginInline:"auto" }}>
         <CardContent>
           <Typography gutterBottom variant="h4" component="div">
             {getData?.id}. {getData?.username}
@@ -42,11 +73,17 @@ const User = () => {
         </CardContent>
         {getData.role === "admin" && (
           <CardActions>
-            <Button size="small">Edit</Button>
-            <Button size="small">Delete</Button>
+            <Button size="small" onClick={() => handleEdit()}>
+              Edit
+            </Button>
+            <Button size="small" onClick={() => handleDelete()}>
+              Delete
+            </Button>
           </CardActions>
         )}
       </Card>
+      <Form />
+      <DialogBox />
     </div>
   );
 };
