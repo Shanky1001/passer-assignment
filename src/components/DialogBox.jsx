@@ -19,8 +19,8 @@ const DialogBox = () => {
   };
   const handleDelete = () => {
     dispatch(removeUser(UserState.delete.id));
+    handleClose();
     navigate("/");
-    dispatch(setDelete({ open: false, id: "" }));
   };
   return (
     <Dialog open={UserState.delete.open} onClose={handleClose}>
@@ -31,8 +31,10 @@ const DialogBox = () => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
-        <Button onClick={handleDelete} autoFocus>
+        <Button variant="outlined" onClick={handleClose}>
+          Cancel
+        </Button>
+        <Button variant="contained" onClick={handleDelete} autoFocus>
           Yes
         </Button>
       </DialogActions>

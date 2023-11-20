@@ -73,10 +73,10 @@ const User = () => {
         </CardContent>
         {getData.role === "admin" && (
           <CardActions>
-            <Button size="small" onClick={() => handleEdit()}>
+            <Button size="small" variant="outlined" onClick={() => handleEdit()}>
               Edit
             </Button>
-            <Button size="small" onClick={() => handleDelete()}>
+            <Button size="small" variant="outlined" onClick={() => handleDelete()}>
               Delete
             </Button>
           </CardActions>
