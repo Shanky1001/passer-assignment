@@ -2,3 +2,10 @@
   margin: 0;
   padding: 0;
 }
+
+.home_container,
+.user_container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 20px auto;
+}
