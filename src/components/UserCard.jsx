@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const UserCard = ({ data }) => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/${data.id}`);
+    navigate(`/user/${data.id}`);
   };
   return (
     <Card sx={{ width: 345 }}>

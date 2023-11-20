@@ -7,7 +7,7 @@ export const ROUTES = [
     component: <Home />,
   },
   {
-    path: "/:id",
+    path: "/user/:id",
     component: <User />,
-  },
+  }
 ];

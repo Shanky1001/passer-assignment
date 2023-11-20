@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import Form from "../components/Form";
 import DialogBox from "../components/DialogBox";
 import { setDelete, setEdit, setForm } from "../redux/features/UserSlice";
-import { IconButton, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 
 const User = () => {
   const params = useParams();
@@ -54,7 +54,7 @@ const User = () => {
           Add User
         </Button>
       </Stack>
-      <Card sx={{ width: 345, marginTop: "20px",marginInline:"auto" }}>
+      <Card sx={{ width: 345, marginTop: "20px", marginInline: "auto" }}>
         <CardContent>
           <Typography gutterBottom variant="h4" component="div">
             {getData?.id}. {getData?.username}
@@ -73,10 +73,18 @@ const User = () => {
         </CardContent>
         {getData.role === "admin" && (
           <CardActions>
-            <Button size="small" variant="outlined" onClick={() => handleEdit()}>
+            <Button
+              size="small"
+              variant="outlined"
+              onClick={() => handleEdit()}
+            >
               Edit
             </Button>
-            <Button size="small" variant="outlined" onClick={() => handleDelete()}>
+            <Button
+              size="small"
+              variant="outlined"
+              onClick={() => handleDelete()}
+            >
               Delete
             </Button>
           </CardActions>
