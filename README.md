@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+## Passer Frontend Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Need to create a user management dashboard
 
-## Available Scripts
+#### Requirements
+- Node v>18
 
-In the project directory, you can run:
+#### Setup
 
-### `npm start`
+- Download or clone the repo
+- Change directory to passer-assignment
+- Run 
+`
+npm start
+`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Task Instructions
+Please implement the following user dashboard application:
+1. Scenario:
+Imagine you&#39;re working for a company that needs a user management dashboard for its
+admin panel. The dashboard should allow administrators to view, create, update, and
+delete user accounts.
+Users have the following properties: ID, username, email, and role (admin or user).
+2. Requirements:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    a. User List: Create a page that displays a list of users. Each user should be listed with their ID, username, email, and role. Include pagination for the user list (e.g. 10 users per page).
 
-### `npm test`
+    b. User Details: When a user is clicked from within the list, a detailed view of the user&#39;s information should be displayed on a separate page. Include an &quot;Edit&quot; button on the user detail page to allow administrators to edit the user&#39;s information.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    c. Edit User: When clicking the &quot;Edit&quot; button, it should open a modal or separate page with a form to edit the user&#39;s information. Allow editing of the username, email, and role. Implement validation for email format.
 
-### `npm run build`
+    d. Create User: Create a form that allows administrators to add new users. Include fields for username, email, and role. Implement validation for email format.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    e. Delete User: Implement a feature to delete a user from the user list. Include a confirmation dialog before deleting.
