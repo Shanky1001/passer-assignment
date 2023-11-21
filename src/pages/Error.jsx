@@ -1,10 +1,7 @@
 import { Button, Stack } from "@mui/material";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const Error = () => {
-  const navigate = useNavigate();
-
   return (
     <Stack
       sx={{ height: "100vh", fontSize: "18px" }}
@@ -16,9 +13,9 @@ const Error = () => {
       <Button
         sx={{ marginTop: "20px" }}
         variant="contained"
-        onClick={() => navigate("/")}
+        onClick={() => window.history.back()}
       >
-        Go Home
+        Go Back
       </Button>
     </Stack>
   );

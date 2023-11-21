@@ -6,7 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useDispatch, useSelector } from "react-redux";
-import { setDelete, removeUser } from "../redux/features/UserSlice";
+import { setDelete, removeUser,setAlert } from "../redux/features/UserSlice";
 import { useNavigate } from "react-router-dom";
 
 const DialogBox = () => {
@@ -19,6 +19,13 @@ const DialogBox = () => {
   };
   const handleDelete = () => {
     dispatch(removeUser(UserState.delete.id));
+    dispatch(
+      setAlert({
+        open: true,
+        message: "User Deleted Successfully",
+        severity: "success",
+      })
+    );
     handleClose();
     navigate("/");
   };

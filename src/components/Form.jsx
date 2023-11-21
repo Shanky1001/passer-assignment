@@ -4,6 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addUser,
+  setAlert,
   setEdit,
   setForm,
   updateUser,
@@ -49,10 +50,24 @@ const Form = () => {
         })
       );
       dispatch(setEdit({ open: false, data: {} }));
+      dispatch(
+        setAlert({
+          open: true,
+          message: "User Updated Successfully",
+          severity: "success",
+        })
+      );
     } else {
       dispatch(addUser({ ...state, id: UserState.users.length + 1 }));
+      dispatch(
+        setAlert({
+          open: true,
+          message: "User Added Successfully",
+          severity: "success",
+        })
+      );
     }
-    handleClose()
+    handleClose();
   };
 
   return (

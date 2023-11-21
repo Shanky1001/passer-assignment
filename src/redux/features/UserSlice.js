@@ -6,6 +6,7 @@ const initialState = {
   edit: { open: false, data: {} },
   delete: { open: false, id: "" },
   openForm: false,
+  alert:{open:false,message:"",severity:""}
 };
 
 export const UserSlice = createSlice({
@@ -33,10 +34,13 @@ export const UserSlice = createSlice({
     setForm: (state, action) => {
       state.openForm = action.payload;
     },
+    setAlert: (state, action) => {
+      state.alert = {open:action.payload.open,message:action.payload.message,severity:action.payload.severity};
+    },
   },
 });
 
-export const { addUser, removeUser, updateUser, setEdit, setDelete, setForm } =
+export const { addUser, removeUser, updateUser, setEdit, setDelete, setForm,setAlert } =
   UserSlice.actions;
 
 export default UserSlice.reducer;

@@ -5,20 +5,25 @@ import { Provider } from "react-redux";
 import { Store } from "./redux/store";
 import NotFound from "./pages/404";
 import Error from "./pages/Error";
+import { ErrorBoundary } from "react-error-boundary";
+import Wrapper from "./components/Wrapper";
 
 function App() {
   return (
     <div className="container">
-      <Provider store={Store}>
-        <BrowserRouter>
-          <Routes>
-            {ROUTES.map((val) => (
-              <Route key={val.path} path={val.path} element={val.component} errorElement={<Error />} />
-            ))}
-            <Route path={"*"} element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </Provider>
+      <ErrorBoundary fallback={<Error />}>
+        <Provider store={Store}>
+          <BrowserRouter>
+            <Wrapper />
+            <Routes>
+              {ROUTES.map((val) => (
+                <Route key={val.path} path={val.path} element={val.component} />
+              ))}
+              <Route path={"*"} element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </Provider>
+      </ErrorBoundary>
     </div>
   );
 }
