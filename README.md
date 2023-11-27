@@ -1,3 +1,6 @@
+## Fake Company, don't bother to apply and work in this company
+
+
 ## Passer Frontend Assignment
 
 ### Need to create a user management dashboard
